@@ -12,6 +12,7 @@ import (
 	"github.com/pkg/errors"
 	"strconv"
 	"strings"
+	"time"
 )
 
 const duplicateKeyErrorMsg = "duplicate key value violates unique constraint"
@@ -249,4 +250,12 @@ func (r *resourceMetaObject) GetVersion() string {
 
 func (r *resourceMetaObject) GetMesh() string {
 	return r.Mesh
+}
+
+func (r *resourceMetaObject) GetCreationTime() time.Time {
+	return time.Unix(0, 0) // todo(jakubdyszkiewicz) solve db migration
+}
+
+func (r *resourceMetaObject) GetModificationTime() time.Time {
+	return time.Unix(0, 0) // todo(jakubdyszkiewicz) solve db migration
 }
